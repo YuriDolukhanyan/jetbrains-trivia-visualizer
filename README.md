@@ -1,16 +1,102 @@
-# React + Vite
+# Trivia Data Visualization
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A mini React app that visualizes data from the [Open Trivia DB API](https://opentdb.com).  
+It displays the **distribution of questions by category and difficulty**, and allows filtering by category.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Features
 
-## React Compiler
+- Fetches **50 trivia questions** from the Open Trivia DB API
+- Displays:
+  - Questions distribution by **Category**
+  - Questions distribution by **Difficulty**
+- Filter to view a **single category**
+- Built using:
+  - React (Functional Components + Hooks)
+  - Recharts for charts
+- Simple, clean, and responsive UI
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Project Structure
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+```
+src/
+├── api/
+│   └── triviaApi.js          # API logic
+│
+├── components/
+│   ├── CategoryChart.jsx     # Bar chart for categories
+│   ├── DifficultyChart.jsx   # Pie chart for difficulty
+│   ├── FilterBar.jsx         # Dropdown filter
+│   └── ContentContainer.jsx  # Main logic container
+│
+├── App.jsx                   # App entry point
+├── index.js
+└── App.css                   # Styling
+```
+
+---
+
+## Installation
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/<your-username>/trivia-visualizer.git
+   cd trivia-visualizer
+   ```
+
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
+
+3. **Run the app locally:**
+   ```bash
+   npm start
+   ```
+
+4. **Build for production:**
+   ```bash
+   npm run build
+   ```
+
+---
+
+## Deployment (GitHub Pages)
+
+1. Add this line to `package.json`:
+   ```json
+   "homepage": "https://<your-username>.github.io/trivia-visualizer"
+   ```
+
+2. Install GitHub Pages:
+   ```bash
+   npm install gh-pages --save-dev
+   ```
+
+3. Add scripts:
+   ```json
+   "scripts": {
+     "predeploy": "npm run build",
+     "deploy": "gh-pages -d build"
+   }
+   ```
+
+4. Deploy:
+   ```bash
+   npm run deploy
+   ```
+
+Then your app will be live at  
+`https://<your-username>.github.io/trivia-visualizer`
+
+---
+
+## API Reference
+
+- Questions endpoint: [`https://opentdb.com/api.php?amount=50`](https://opentdb.com/api.php?amount=50)
+- Categories endpoint: [`https://opentdb.com/api_category.php`](https://opentdb.com/api_category.php)
+
+---
