@@ -64,36 +64,6 @@ src/
 
 ---
 
-## Deployment (GitHub Pages)
-
-1. Add this line to `package.json`:
-   ```json
-   "homepage": "https://<your-username>.github.io/trivia-visualizer"
-   ```
-
-2. Install GitHub Pages:
-   ```bash
-   npm install gh-pages --save-dev
-   ```
-
-3. Add scripts:
-   ```json
-   "scripts": {
-     "predeploy": "npm run build",
-     "deploy": "gh-pages -d build"
-   }
-   ```
-
-4. Deploy:
-   ```bash
-   npm run deploy
-   ```
-
-Then your app will be live at  
-`https://<your-username>.github.io/trivia-visualizer`
-
----
-
 ## API Reference
 
 - Questions endpoint: [`https://opentdb.com/api.php?amount=50`](https://opentdb.com/api.php?amount=50)
